@@ -16,21 +16,9 @@ use Peru\Services\DniInterface;
  */
 class Dni implements DniInterface
 {
-    /**
-     * @var ClientInterface
-     */
-    private $client;
-    /**
-     * @var DniParser
-     */
-    private $parser;
+    private ClientInterface $client;
+    private DniParser $parser;
 
-    /**
-     * Dni constructor.
-     *
-     * @param ClientInterface $client
-     * @param DniParser       $parser
-     */
     public function __construct(ClientInterface $client, DniParser $parser)
     {
         $this->client = $client;
@@ -49,10 +37,6 @@ class Dni implements DniInterface
 
     /**
      * Get Person Information by DNI.
-     *
-     * @param string $dni
-     *
-     * @return Person|null
      */
     public function get(string $dni): ?Person
     {

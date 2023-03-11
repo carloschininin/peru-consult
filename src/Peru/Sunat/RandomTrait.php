@@ -6,7 +6,7 @@ namespace Peru\Sunat;
 
 trait RandomTrait
 {
-    private static $Pattern = '/<input type="hidden" name="numRnd" value="(.*)">/';
+    private static string $Pattern = '/<input type="hidden" name="numRnd" value="(.*)">/';
 
     private function getRandom(string $html): string
     {

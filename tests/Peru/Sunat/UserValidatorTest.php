@@ -30,7 +30,7 @@ class UserValidatorTest extends TestCase
 
     public function testValidezCorrect()
     {
-        $result = $this->validator->valid('20000000001', 'HUAFDSMU');
+        $result = $this->validator->valid('20440890254', 'FACTURAJ');
 
         $this->assertTrue($result);
     }

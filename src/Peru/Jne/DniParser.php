@@ -18,7 +18,7 @@ class DniParser
         return $person;
     }
 
-    private function getVerifyCode($dni)
+    private function getVerifyCode($dni): int
     {
         $suma = 5;
         $len = strlen($dni);

@@ -16,16 +16,8 @@ use Peru\Sunat\Parser\XpathLoader;
  */
 class UserValidator
 {
-    /**
-     * @var ClientInterface
-     */
-    private $client;
+    private ClientInterface $client;
 
-    /**
-     * UserValidator constructor.
-     *
-     * @param ClientInterface $client
-     */
     public function __construct(ClientInterface $client)
     {
         $this->client = $client;
@@ -33,13 +25,8 @@ class UserValidator
 
     /**
      * Consulta válidez del usuario SOL.
-     *
-     * @param string $ruc
-     * @param string $user
-     *
-     * @return bool
      */
-    public function valid($ruc, $user)
+    public function valid(string $ruc, string $user): bool
     {
         $this->client->get(Endpoints::USER_VALIDEZ);
         $html = $this->client->post(Endpoints::USER_VALIDEZ, [
@@ -50,7 +37,7 @@ class UserValidator
 
         $state = $this->getStatus($html);
 
-        return false !== strpos(strtoupper($state), 'ACTIVO');
+        return str_contains(strtoupper($state), 'ACTIVO');
     }
 
     private function getStatus(string $html): string

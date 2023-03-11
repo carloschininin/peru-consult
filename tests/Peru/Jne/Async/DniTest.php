@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Tests\Peru\Jne\Async;
 
-use function Clue\React\Block\await;
+use React\EventLoop\Loop;
+use function React\Async\await;
 use Peru\Http\Async\ClientInterface;
 use Peru\Http\Async\HttpClient;
 use Peru\Jne\Async\Dni;
 use Peru\Jne\DniParser;
 use Peru\Reniec\Person;
 use PHPUnit\Framework\TestCase;
-use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 use React\Promise\FulfilledPromise;
 use Tests\Peru\Sunat\Async\HttpClientStub;
@@ -29,7 +29,7 @@ class DniTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->loop = Factory::create();
+        $this->loop = Loop::get();
         $this->consult = new Dni(new HttpClientStub(new HttpClient($this->loop)), new DniParser());
     }
 

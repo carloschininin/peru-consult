@@ -83,7 +83,7 @@ class RucTest extends TestCase
         $this->assertNull($company);
     }
 
-    public function rucProviders()
+    public static function rucProviders(): array
     {
         return [
             ['20440374248'], // 20550263948LA LIBERTAD

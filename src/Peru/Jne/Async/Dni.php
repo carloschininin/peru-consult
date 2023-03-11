@@ -9,22 +9,9 @@ use React\Promise\PromiseInterface;
 
 class Dni
 {
-    /**
-     * @var ClientInterface
-     */
-    private $client;
+    private ClientInterface $client;
+    private DniParser $parser;
 
-    /**
-     * @var DniParser
-     */
-    private $parser;
-
-    /**
-     * Dni constructor.
-     *
-     * @param ClientInterface $client
-     * @param DniParser       $parser
-     */
     public function __construct(ClientInterface $client, DniParser $parser)
     {
         $this->client = $client;
@@ -35,7 +22,6 @@ class Dni
      * Override JNE Request token
      *
      * @deprecated unused
-     * @param string $requestToken
      */
     public function setRequestToken(string $requestToken): void
     {
@@ -43,10 +29,6 @@ class Dni
 
     /**
      * Get Person Information by DNI.
-     *
-     * @param string $dni
-     *
-     * @return PromiseInterface
      */
     public function get(string $dni): PromiseInterface
     {

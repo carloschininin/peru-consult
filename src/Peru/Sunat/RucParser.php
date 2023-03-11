@@ -12,7 +12,7 @@ class RucParser
      *
      * @var array<string, string>
      */
-    private $overridDeps = [
+    private array $overridDeps = [
         'DIOS' => 'MADRE DE DIOS',
         'MARTIN' => 'SAN MARTIN',
         'LIBERTAD' => 'LA LIBERTAD',
@@ -22,7 +22,7 @@ class RucParser
     /**
      * @var HtmlParserInterface
      */
-    private $parser;
+    private HtmlParserInterface $parser;
 
     /**
      * RucHtmlParser constructor.

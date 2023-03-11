@@ -18,15 +18,10 @@ class HttpClient extends Browser implements ClientInterface
     /**
      * @var array
      */
-    public $cookies;
+    public array $cookies;
 
     /**
      * Make GET Request.
-     *
-     * @param string $url
-     * @param array  $headers
-     *
-     * @return PromiseInterface
      */
     public function getAsync(string $url, array $headers = []): PromiseInterface
     {
@@ -41,14 +36,8 @@ class HttpClient extends Browser implements ClientInterface
 
     /**
      * Post Request.
-     *
-     * @param string $url
-     * @param mixed $data
-     * @param array $headers
-     *
-     * @return PromiseInterface
      */
-    public function postAsync(string $url, $data, array $headers = []): PromiseInterface
+    public function postAsync(string $url, mixed $data, array $headers = []): PromiseInterface
     {
         $headers = $this->buildHeaders($headers);
         return $this->post($url, $headers, $data)
@@ -74,7 +63,7 @@ class HttpClient extends Browser implements ClientInterface
         }, $responseCookies));
     }
 
-    private function buildHeaders(array $headers)
+    private function buildHeaders(array $headers): array
     {
         $defaultHeaders = [
             'User-Agent' => self::USER_AGENT,

@@ -17,15 +17,9 @@ use PHPUnit\Framework\Assert;
  */
 class FeatureContext implements Context
 {
-    /**
-     * @var string
-     */
-    private $document;
+    private string $document;
 
-    /**
-     * @var mixed
-     */
-    private $result;
+    private mixed $result;
 
     /**
      * Initializes context.

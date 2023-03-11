@@ -1,27 +1,25 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<phpunit
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.0/phpunit.xsd"
-        bootstrap="vendor/autoload.php"
-        colors="true"
-        stopOnFailure="true">
-	<php>
-		<env name="MOCK_URL" value=""/>
-	</php>
-	<testsuites>
-		<testsuite name="Unit Tests">
-			<directory>tests</directory>
-		</testsuite>
-	</testsuites>
-	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">src</directory>
-			<exclude>
-				<directory>./tests</directory>
-				<directory>./vendor</directory>
-				<file>./src/Peru/Http/ContextClient.php</file>
-				<file>./src/Peru/Sunat/HtmlParser.php</file>
-			</exclude>
-		</whitelist>
-	</filter>
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php" colors="true" stopOnFailure="true"
+         cacheDirectory=".phpunit.cache">
+  <coverage>
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+    <exclude>
+      <directory>./tests</directory>
+      <directory>./vendor</directory>
+      <file>./src/Peru/Http/ContextClient.php</file>
+      <file>./src/Peru/Sunat/HtmlParser.php</file>
+    </exclude>
+  </coverage>
+  <php>
+    <env name="MOCK_URL" value=""/>
+  </php>
+  <testsuites>
+    <testsuite name="Unit Tests">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>
