@@ -25,7 +25,7 @@ class DniTest extends TestCase
      */
     private $cs;
 
-    public function setUp()
+    public function setUp(): void
     {
         $client = new CurlClient();
         $this->cs = new Dni(new ClientStubDecorator(new EmptyResponseDecorator($client)), new DniParser());

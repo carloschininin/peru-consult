@@ -23,7 +23,7 @@ class UserValidatorTest extends TestCase
      */
     private $validator;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->validator = new UserValidator(new ClientStubDecorator(new CurlClient()));
     }

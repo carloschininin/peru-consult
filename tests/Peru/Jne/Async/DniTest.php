@@ -27,7 +27,7 @@ class DniTest extends TestCase
      */
     private $consult;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->loop = Factory::create();
         $this->consult = new Dni(new HttpClientStub(new HttpClient($this->loop)), new DniParser());
@@ -62,7 +62,7 @@ class DniTest extends TestCase
         $this->assertNull($person);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->loop->run();
     }

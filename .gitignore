@@ -6,3 +6,4 @@
 .DS_Store
 /test-results/
 /phpunit.xml
+/.phpunit.result.cache

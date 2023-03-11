@@ -14,7 +14,7 @@ class EmptyResponseDecoratorTest extends TestCase
      * @var EmptyResponseDecorator
      */
     private $client;
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->client = new EmptyResponseDecorator($this->createClient());
     }
@@ -33,7 +33,7 @@ class EmptyResponseDecoratorTest extends TestCase
         $this->assertTrue(is_string($result));
     }
 
-    private function createClient()
+    private function createClient(): ClientInterface
     {
         $mock = $this->getMockBuilder(ClientInterface::class)->getMock();
 

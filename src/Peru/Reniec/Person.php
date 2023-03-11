@@ -46,7 +46,7 @@ class Person implements JsonSerializable
      *
      * @since 5.4.0
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return get_object_vars($this);
     }

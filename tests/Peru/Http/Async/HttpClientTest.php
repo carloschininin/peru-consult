@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Tests\Peru\Http\Async;
 
+use React\EventLoop\Loop;
 use function Clue\React\Block\await;
 use Peru\Http\Async\ClientInterface;
 use Peru\Http\Async\HttpClient;
 use PHPUnit\Framework\TestCase;
-use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 
 class HttpClientTest extends TestCase
@@ -22,9 +22,9 @@ class HttpClientTest extends TestCase
      */
     private $client;
 
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->loop = Factory::create();
+        $this->loop = Loop::get();
         $this->client = new HttpClient($this->loop);
     }
 
@@ -74,7 +74,7 @@ class HttpClientTest extends TestCase
         await($this->client->postAsync('https://httpbin323.org/post', ''), $this->loop);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->loop->run();
     }

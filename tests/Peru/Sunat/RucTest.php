@@ -27,7 +27,7 @@ class RucTest extends TestCase
      */
     private $cs;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->cs = new Ruc(
             new ClientStubDecorator(new EmptyResponseDecorator(new CurlClient())),
