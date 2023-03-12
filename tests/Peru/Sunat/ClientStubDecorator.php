@@ -13,19 +13,8 @@ use Peru\Http\ClientInterface;
  */
 class ClientStubDecorator implements ClientInterface
 {
-    /**
-     * @var ClientInterface
-     */
-    private $client;
-
-    /**
-     * ClientStubDecorator constructor.
-     *
-     * @param ClientInterface $client
-     */
-    public function __construct(ClientInterface $client)
+    public function __construct(private readonly ClientInterface $client)
     {
-        $this->client = $client;
     }
 
     /**
@@ -55,7 +44,7 @@ class ClientStubDecorator implements ClientInterface
         return $this->client->post(self::getNewUrl($url), $data, $headers);
     }
 
-    public static function getNewUrl($url)
+    public static function getNewUrl(string $url): string
     {
         if (!isset($_ENV['MOCK_URL']) || empty($urlBase = $_ENV['MOCK_URL'])) {
 
