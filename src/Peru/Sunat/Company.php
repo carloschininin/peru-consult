@@ -50,7 +50,7 @@ class Company implements JsonSerializable
 
     public ?string $fechaEmisorFe;
 
-    public array $cpeElectronico;
+    public ?array $cpeElectronico;
 
     public ?string $fechaPle;
 

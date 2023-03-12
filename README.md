@@ -11,12 +11,12 @@ Consultas gratuita de DNI y RUC sin uso de captcha, ni OCR.
 ## Install
 Usando composer desde [packagist.org](https://packagist.org/packages/giansalex/peru-consult)
 ```bash
-composer require giansalex/peru-consult
+composer require carloschininin/peru-consult
 ```
 [Documentación](https://giansalex.github.io/peru-consult/)
 
 ### Requerimientos
-- PHP 7.1 o superior.
+- PHP 8.1 o superior.
 - Extensión `curl`
 
 ### Servicios Disponibles

@@ -18,10 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class UserValidatorTest extends TestCase
 {
-    /**
-     * @var UserValidator
-     */
-    private $validator;
+    private UserValidator $validator;
 
     protected function setUp(): void
     {

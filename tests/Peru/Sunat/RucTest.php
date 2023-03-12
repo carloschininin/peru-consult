@@ -22,10 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RucTest extends TestCase
 {
-    /**
-     * @var Ruc
-     */
-    private $cs;
+    private ?Ruc $cs = null;
 
     public function setUp(): void
     {
@@ -37,10 +34,9 @@ class RucTest extends TestCase
     /**
      * @dataProvider rucProviders
      *
-     * @param string $ruc
      * @throws Exception
      */
-    public function testGetRuc($ruc)
+    public function testGetRuc(string $ruc)
     {
         $company = $this->cs->get($ruc);
 
