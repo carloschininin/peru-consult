@@ -18,14 +18,9 @@ use Tests\Peru\Sunat\Async\HttpClientStub;
 
 class DniTest extends TestCase
 {
-    /**
-     * @var LoopInterface
-     */
-    private $loop;
-    /**
-     * @var Dni
-     */
-    private $consult;
+    private LoopInterface $loop;
+
+    private Dni $consult;
 
     protected function setUp(): void
     {
@@ -34,21 +29,21 @@ class DniTest extends TestCase
     }
 
     /**
-     * @throws \Exception when the promise is rejected
+     * @throws \Exception|\Throwable when the promise is rejected
      */
     public function testGetDni()
     {
-         $this->consult->setRequestToken('097n0wui1QSNq9fIvsgrvRMD3HpX94k_daIKOOtfB909CCH4I6yIMF2xGS-oL5f9JcuQLxi0r7NaifLl7ywzetCamoqIInRRVLFNGwvf_-o1:gwx3eTdFP_Dluq92Nv3eX7qSJKg-MgnbxwHnhR57Q_JIfdvuXJsT1vDd926nUDXsvv7HcpJFuDh3yCyMfYEMY8BOZ4YkTFVyHC6EFW4Hboo1');
-         $promise = $this->consult->get('48004836');
+         $promise = $this->consult->get('41489925');
+
          /**@var $person Person */
-         $person = await($promise, $this->loop);
+         $person = await($promise);
 
          $this->assertNotNull($person);
-         $this->assertEquals('48004836', $person->dni);
+         $this->assertEquals('41489925', $person->dni);
     }
 
     /**
-     * @throws \Exception when the promise is rejected
+     * @throws \Exception|\Throwable when the promise is rejected
      */
     public function testServerEmptyResponse()
     {
@@ -57,7 +52,7 @@ class DniTest extends TestCase
 
         /**@var $stub ClientInterface */
         $client = new Dni($stub, new DniParser());
-        $person = await($client->get('0999'), $this->loop);
+        $person = await($client->get('0999'));
 
         $this->assertNull($person);
     }
