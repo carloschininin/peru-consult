@@ -9,10 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class DniParserTest extends TestCase
 {
-    /**
-     * @var DniParser
-     */
-    private $parser;
+    private DniParser $parser;
 
     protected function setUp(): void
     {
@@ -20,12 +17,10 @@ class DniParserTest extends TestCase
     }
 
     /**
-     * @param string $dni
-     *
      * @testWith ["00000009"]
      *           ["00000003"]
      */
-    public function testParseDni($dni)
+    public function testParseDni(string $dni)
     {
         $obj = json_decode('{"apeMatSoli": "PATERNO","apePatSoli": "MATERNO","nombreSoli": "NOMBRES"}');
         $person = $this->parser->parse($dni, $obj);

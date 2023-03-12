@@ -25,7 +25,7 @@ class RucTest extends TestCase
         $promise = $cs->get(self::RUC_COMPANY);
 
         /**@var $company Company */
-        $company = await($promise, $loop);
+        $company = await($promise);
 
         $this->assertNotNull($company);
         $this->assertEquals(self::RUC_COMPANY, $company->ruc);

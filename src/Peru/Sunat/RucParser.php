@@ -19,21 +19,11 @@ class RucParser
         'CALLAO' => 'PROV. CONST. DEL CALLAO',
     ];
 
-    /**
-     * @var HtmlParserInterface
-     */
-    private HtmlParserInterface $parser;
-
-    /**
-     * RucHtmlParser constructor.
-     * @param HtmlParserInterface $parser
-     */
-    public function __construct(HtmlParserInterface $parser)
+    public function __construct(private readonly HtmlParserInterface $parser)
     {
-        $this->parser = $parser;
     }
 
-    public function parse(string $html): ?Company
+    public function parse(?string $html): ?Company
     {
         if (empty($html)) {
             return null;
@@ -50,7 +40,6 @@ class RucParser
 
     /**
      * @param array<string, mixed> $items
-     * @return Company
      */
     private function getCompany(array $items): Company
     {
@@ -73,7 +62,6 @@ class RucParser
 
     /**
      * @param array<string, mixed> $items
-     * @return Company
      */
     private function getHeadCompany(array $items): Company
     {

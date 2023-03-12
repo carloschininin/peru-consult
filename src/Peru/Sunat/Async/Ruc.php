@@ -12,26 +12,10 @@ class Ruc
 {
     use RandomTrait;
 
-    /**
-     * @var ClientInterface
-     */
-    private $client;
-
-    /**
-     * @var RucParser
-     */
-    private $parser;
-
-    /**
-     * Ruc constructor.
-     *
-     * @param ClientInterface $client
-     * @param RucParser   $parser
-     */
-    public function __construct(ClientInterface $client, RucParser $parser)
-    {
-        $this->client = $client;
-        $this->parser = $parser;
+    public function __construct(
+        private readonly ClientInterface $client,
+        private readonly RucParser $parser
+    ) {
     }
 
     public function get(string $ruc): PromiseInterface

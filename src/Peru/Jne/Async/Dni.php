@@ -19,15 +19,6 @@ class Dni
     }
 
     /**
-     * Override JNE Request token
-     *
-     * @deprecated unused
-     */
-    public function setRequestToken(string $requestToken): void
-    {
-    }
-
-    /**
      * Get Person Information by DNI.
      */
     public function get(string $dni): PromiseInterface
